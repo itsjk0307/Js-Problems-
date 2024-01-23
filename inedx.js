@@ -1,8 +1,11 @@
 // Problem number 1
 function createPyramid(numLines) {
   for (let i = 1; i <= numLines; i++) {
-    let stars = "#".repeat(i);
-    console.log(stars);
+    let newLine = "";
+    for (let j = 0; j < i; j++) {
+      newLine += "#";
+    }
+    console.log(newLine);
   }
 }
 createPyramid(6);
@@ -12,7 +15,7 @@ function filterEvenNumbers(arr) {
   return arr.filter((number) => number % 2 === 0);
 }
 
-const inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const resultArray = filterEvenNumbers(inputArray);
 
 console.log(resultArray);
