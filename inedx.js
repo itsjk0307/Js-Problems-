@@ -1,38 +1,62 @@
-// Problem number 1
-function createPyramid(numLines) {
-  for (let i = 1; i <= numLines; i++) {
-    let newLine = "";
-    for (let j = 0; j < i; j++) {
-      newLine += "#";
-    }
-    console.log(newLine);
-  }
-}
-createPyramid(6);
-
-// Problem number 2
-function filterEvenNumbers(arr) {
-  return arr.filter((number) => number % 2 === 0);
+function calculate(arr) {
+  return arr
+    .filter((number) => number > 0 && number % 2 !== 0)
+    .reduce((sum, currentNumber) => sum + currentNumber, 0);
 }
 
-const inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-const resultArray = filterEvenNumbers(inputArray);
+console.log(calculate([5, 0, -5, 20, 888, 17, -32])); // 22
 
-console.log(resultArray);
+function calculate(arr) {
+  let sum = 0;
 
-// Problem number 2
-function stalinSort(arr) {
-  let result = [arr[0]];
-
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] >= result[result.length - 1]) {
-      result.push(arr[i]);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0 && arr[i] % 2 !== 0) {
+      sum += arr[i];
     }
   }
 
-  return result;
+  return sum;
 }
-const unsortedArray = [5, 2, 8, 3, 1, 6, 7, 4];
-const sortedArray = stalinSort(unsortedArray);
 
-console.log(sortedArray);
+console.log(calculate([5, 0, -5, 20, 888, 17, -32])); // 22
+
+function check(arr, k) {
+  arr.sort((a, b) => a - b);
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+
+    if (sum === k) {
+      return true;
+    } else if (sum < k) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return false;
+}
+
+console.log(check([10, 15, 3, 7], 17)); // true
+console.log(check([10, 15, 3, 7], 20)); // false
+
+function sumDigits(number) {
+  // Convert the number to a string to iterate through its digits
+  const numberString = number.toString();
+
+  // Use the Array.from method to create an array of digits
+  const digitsArray = Array.from(numberString, Number);
+
+  // Use the reduce method to calculate the sum of the digits
+  const sum = digitsArray.reduce((acc, digit) => acc + digit, 0);
+
+  return sum;
+}
+
+console.log(sumDigits(123)); // 6
+console.log(sumDigits(9045)); // 18
+console.log(sumDigits(3)); // 3
