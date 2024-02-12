@@ -110,9 +110,35 @@ const items = [
 
 // console.log(findItems);
 
-const numbers = [2, 4, 6, 8];
-const doubleNumber = numbers.map((number) => {
-  return console.log(number * 2);
-});
+// const numbers = [2, 4, 6, 8];
+// const doubleNumber = numbers.map((number) => {
+//   return console.log(number * 2);
+// });
 
-doubleNumber;
+// doubleNumber;
+
+// const total = items.reduce((currentTotal, item) => {
+//   return item.price + currentTotal;
+// }, 0);
+
+// console.log(total);
+
+// const numbers = [22, 33, 5, 78, 100];
+// const findMaxNumber = numbers.reduce((number, current) => {
+//   return current > number ? current : number;
+// });
+
+// console.log(findMaxNumber);
+
+// Filter strings by length:
+//  Write a function that takes an array of strings and a number length as input
+//  and returns a new array containing only the strings with length greater than length using the filter method.
+
+const strings = ["banana", "apple", "jamshid", "uch"];
+
+function filterString(stringsArray, length) {
+  return stringsArray.filter((str) => str.length >= length);
+}
+
+const filteredString = filterString(strings, 6);
+console.log(filteredString);
